@@ -124,3 +124,54 @@ const ListItem = React.forwardRef(({ className, children, title, ...props }, for
 ));
 
 export default NavigationMenuDemo;
+
+// import '@radix-ui/themes/styles.css';
+// import { AvatarIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+// import * as Label from '@radix-ui/react-label';
+// import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+// import 'react-horizontal-scrolling-menu/dist/styles.css';
+// function Card({ onClick, selected, title, itemId }) {
+//     const visibility = React.useContext(VisibilityContext);
+//     return (
+//         <div
+//             onClick={() => onClick(visibility)}
+//             className="w-64 m-3 p-3 bg-gray-200 rounded shadow-lg cursor-pointer"
+//         >
+//             <div className="">
+//                 <div>{title}</div>
+//                 <div>visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}</div>
+//                 <div>selected: {JSON.stringify(!!selected)}</div>
+//             </div>
+//         </div>
+//     );
+// }
+// function isItemSelected(itemId, selectedItemId) {
+//     return itemId === selectedItemId;
+// }
+// const items = [
+//     { id: 1, /* other properties */ },
+//     { id: 2, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     { id: 3, /* other properties */ },
+//     // Add more items as needed
+// ];
+{/* <div className='flex'>
+                <ScrollMenu className="flex whitespace-nowrap overflow-auto scrollbar-hide ">
+                    {items.map(({ id }) => (
+                        <Card
+                            itemId={id}
+                            title={id}
+                            key={id}
+                            onClick={() => handleClick(id)}
+                    selected={isItemSelected(id, selectedItemId)}
+                />
+            ))}
+        </ScrollMenu>
+    </div> */}

@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "123",
+    "database": "SightInn",
+    "host": "localhost",
+    "port":8081,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "123",
+    "database": "SightInn",
+    "host": "localhost",
+    "port":8081,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "123",
+    "database": "SightInn",
+    "host": "localhost",
+    "port":8081,
+    "dialect": "postgres"
+  }
+}

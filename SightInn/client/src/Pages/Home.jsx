@@ -24,19 +24,15 @@ function SearchBar({ placeholder, onSearch }) {
 }
 
 function Home() {
-  const selectedItemId = 1;
-  const handleClick = (itemId) => {
-    console.log(`Clicked on item with ID: ${itemId}`);
-  };
-
   return (
     <div className='pl-6'>
       <div className="px-20 shadow-sm">
         <div className="flex items-center justify-between max-w-8xl mx-auto p-5">
+          
           <div className='h-35 w-35'>
             <img src={logo} alt="Logo" className="h-15 w-20" />
           </div>
-
+    
           <SearchBar placeholder="Search..." onSearch={(query) => console.log(query)} />
 
           <div className="flex items-center space-x-10">

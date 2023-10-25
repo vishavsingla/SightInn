@@ -3,7 +3,7 @@
 import { KEY_ACCESS_TOKEN, getItem,setItem } from './localStorageManager';
 import axios from 'axios';
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:4001";
 
 const axiosClient = axios.create({
     withCredentials: true,
@@ -30,7 +30,7 @@ axiosClient.interceptors.response.use(
         const error = data.error;
 
 //when refresh token expires send user to login page
-        if(statusCode === 401 && originalRequest.url === 'http://localhost:8080/auth/refresh'){
+        if(statusCode === 401 && originalRequest.url === 'http://localhost:4001/auth/refresh'){
             removeItem(KEY_ACCESS_TOKEN);
             window.location.replace('/login', '_self');
             return Promise.reject(error);
@@ -38,7 +38,7 @@ axiosClient.interceptors.response.use(
 
         if(statusCode === 401 && !originalRequest._retry){
             originalRequest._retry = true;
-            const response = await axios.create({withCredentials:true,}).get('http://localhost:8080/auth/refresh');
+            const response = await axios.create({withCredentials:true,}).get('http://localhost:4001/auth/refresh');
             if(response.status === 'ok'){
                 const accessToken = response.result.accessToken;
                 setItem(KEY_ACCESS_TOKEN, accessToken);

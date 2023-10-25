@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const authRouter = require('./routers/authRouter');
+const hotelRouter = require('./routers/hotelRouter');
 const app = express();
 dotenv.config();
 
@@ -18,16 +19,14 @@ app.use(express.json());
 app.use(morgan('common'));
 app.use(cookieParser());    
 app.use('/auth', authRouter);
+app.use('/hotel', hotelRouter);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/test', (req, res) => {
-  res.status(200).send('Hello World!');
-});
 
 db();
-app.listen(8080, () => {
-  console.log('App listening on port 8080!');
+app.listen(4001, () => {
+  console.log('App listening on port 4001!');
 });
 

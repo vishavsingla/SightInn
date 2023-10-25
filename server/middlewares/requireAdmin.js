@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { error, success } = require('../utils/responseWrapper');
+const User = require("../models/User");
 
 module.exports = async (req, res, next) => {
   if (

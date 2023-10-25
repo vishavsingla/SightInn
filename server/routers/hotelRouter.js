@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const hotelController = require('../controllers/hotelController');
-const requireAdmin = require('../middlewares/requireAdmin');
+const requireUser = require('../middlewares/requireUser');
 
-router.post('/', requireAdmin, hotelController.createHotel);
-router.get('/', hotelController.getHotels);
-router.get('/:id', hotelController.getHotel);
-router.put('/:id', requireAdmin, hotelController.updateHotel);
-router.delete('/:id', requireAdmin, hotelController.deleteHotel);
+router.post('/', requireUser, hotelController.createHotel);
+router.get('/', hotelController.getAllHotels);
+router.get('/:id', requireUser, hotelController.getHotelById);
+router.put('/:id', requireUser, hotelController.updateHotel);
+router.delete('/:id', requireUser, hotelController.deleteHotel);
 
+module.exports = router;

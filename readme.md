@@ -7,3 +7,5 @@ location
 wishlist
 
 filters
+
+Chat

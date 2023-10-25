@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const hotelSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Account',
+    ref: 'user',
     required: true,
   },
   image: {

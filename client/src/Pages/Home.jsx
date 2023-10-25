@@ -5,8 +5,10 @@ import HotelCard from '../components/HotelCard';
 import ImageSlider from '../components/ImageSlider';
 import { SliderData } from '../components/SliderData';
 import hotel from '../assets/hotel.jpeg'
+
 import * as Dialog from '@radix-ui/react-dialog';
   import { Cross2Icon } from '@radix-ui/react-icons';
+import LoginSignupDialog from '../components/LoginSignupDialog';
 
 function SearchBar({ placeholder, onSearch }) {
   return (
@@ -113,7 +115,7 @@ function Home() {
           </div>
 
           <SearchBar placeholder="Search..." onSearch={(query) => console.log(query)} />
-          <DialogDemo />
+          <LoginSignupDialog />
           <div className="flex items-center space-x-10">
             <div className="text-lg font-sans text-gray">Explore cities</div>
             <AvatarIcon className="h-10 w-10 text-crimson" />

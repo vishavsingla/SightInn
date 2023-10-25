@@ -1,6 +1,6 @@
 const { error, success } = require("../utils/responseWrapper");
 const Hotel = require("../models/Hotel");
-const Account = require("../models/Account");
+const Account = require("../models/User");
 
 const createHotel = async (req, res) => {
 

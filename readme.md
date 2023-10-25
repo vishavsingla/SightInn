@@ -9,3 +9,5 @@ wishlist
 filters
 
 Chat
+
+payment page

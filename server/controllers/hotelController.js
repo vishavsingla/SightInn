@@ -11,7 +11,7 @@
 
         const hotel = await Hotel.create({
             owner,
-            title,
+            title,  
             location,
             description,
             pricePerNight,
@@ -28,10 +28,12 @@
         }
     }
 
+    
+
     const getAllHotels = async (req, res) => {
         try {
             const hotels = await Hotel.find();
-            res.status(200).json(success(hotels));
+            res.status(200).json(hotels);
         } catch (err) {
             res.status(500).json(error(err));
         }

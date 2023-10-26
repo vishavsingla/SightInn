@@ -1,10 +1,36 @@
-import React from 'react';
-
-import HotelCard from '../components/HotelCard';
-import hotel from '../assets/hotel.jpeg';
+import React, { useState,useEffect  } from 'react';
 import Navbar from '../components/Navbar';
+import axios from 'axios';
+import ImageSlider from '../components/ImageSlider';
+import { SliderData } from '../components/SliderData';
 
 function Home() {
+    const [hotelsData, getHotels] = useState([]);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      axios.get('http://localhost:4001/hotel')
+        .then((response) => {
+          console.log(response.data);
+          getHotels(response.data);
+          setLoading(false); // Data has loaded
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+          setLoading(false); // Data failed to load
+        });
+    }, []);
+  
+    if (loading) {
+      console.log('loading');
+      return <p>Loading...</p>;
+    }
+    
+    if (hotelsData.length === 0) {
+      console.log('No data');
+      return <p>No data available.</p>;
+    }
+  
   return (
     <div className='pl-6'>
       <Navbar />
@@ -21,69 +47,22 @@ function Home() {
       </div>
 
       <div className="px-4 sm:px-20 py-7 max-w-8xl mx-auto flex flex-wrap gap-7">
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
-        <HotelCard
-          title={hotel}
-          location="Jaipur, India"
-          distance="416 km away"
-          date="1-6 Nov"
-          price="₹33,521"
-        />
+      {hotelsData.map((hotel) => (
+          <tbody>
+            <div className='px-2 font-sans'>
+              <ImageSlider className='flex' slides={SliderData} /> {/* Use the ImageSlider component here */}
+              <div className="pt-2 px-1">
+                <div className="font-bold">{hotel.location}</div>
+                <div className="text-gray-500 ">{hotel.distance}</div>
+                <div className="text-gray-500 ">{hotel.date}</div>
+                <div>
+                  <span className="font-bold">{hotel.price}</span>
+                  <span className="text-gray-500"> per night</span>
+                </div>
+              </div>
+            </div>
+          </tbody>
+        ))}
 
       </div>
     </div>
@@ -91,4 +70,3 @@ function Home() {
 }
 
 export default Home;
-

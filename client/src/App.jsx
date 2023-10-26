@@ -2,8 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import Signup from './Pages/Signup';
 // import Signin from './Pages/Signin';
 import Home from './Pages/Home'
-import Redirect from './Pages/Redirect';
 import CreateHotelForm from './components/CreateHotelForm';
+import EditHotelForm from './components/EditHotelForm';
+import Redirect from './Pages/Redirect';
+import AdminPage from './Pages/adminPage';
 
 function App() {
   return (
@@ -11,7 +13,10 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/redirect" element={<CreateHotelForm />} />
+          <Route path="/create" element={<CreateHotelForm />} />
+          <Route path="/update" element={<EditHotelForm />} />
+          <Route path="/redirect" element={<Redirect />} />
+          <Route path="/admin" element={<AdminPage />} />
 
           {/* <Route path="/login" element={<Signin />} />
           <Route path="/signup" element={<Signup />} /> */}

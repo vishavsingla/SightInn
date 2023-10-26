@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { AvatarIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import logo from '../assets/logo.png';
-import LoginSignupDialog from '../components/LoginSignupDialog';
+import LoginSignupDialog from './LoginSignupDialog';
+import DropdownMenuDemo from './DropdownMenuDemo';
+import NavigationMenuDemo from './NavigationMenuDemo';
 
 function SearchBar({ placeholder, onSearch }) {
   return (
@@ -16,9 +18,21 @@ function SearchBar({ placeholder, onSearch }) {
         placeholder={placeholder}
         onKeyUp={(e) => onSearch(e.target.value)}
       />
+
+      
     </div>
   );
 }
+
+function AvatarDropdown() {
+  return (
+    <div className="relative group">
+      <NavigationMenuDemo />
+      
+    </div>
+  );
+}
+
 
 function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -36,21 +50,10 @@ function Navbar() {
           </div>
 
           <SearchBar placeholder="Search..." onSearch={(query) => console.log(query)} />
+          <button><LoginSignupDialog/></button>
           <div className="relative group">
-            <AvatarIcon
-              className="h-10 w-10 text-crimson cursor-pointer"
-              onClick={toggleProfile}
-            />
-            {isProfileOpen && (
-              <div className="absolute top-12 right-0 mt-2 p-2 bg-white-400 rounded-lg shadow-md">
-                <div className="text-center">
-                  <button className="bg-crimson text-white px-4 py-2 rounded-full">
-                    Sign Up
-                  </button>
-                </div>
-                <LoginSignupDialog />
-              </div>
-            )}
+            
+            <AvatarDropdown />
           </div>
         </div>
       </div>

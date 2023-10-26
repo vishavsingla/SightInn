@@ -22,7 +22,7 @@ export default function LoginSignup() {
       if (response.status === 'ok' && response.statusCode === 200) {
         const accessToken = response.result.accessToken;
         setItem(KEY_ACCESS_TOKEN, accessToken);
-        navigate('/redirect');
+        navigate('/admin');
       } else {
         console.error('Login failed:', response.error);
       }

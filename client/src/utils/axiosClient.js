@@ -1,5 +1,4 @@
 
-
 import { KEY_ACCESS_TOKEN, getItem,setItem } from './localStorageManager';
 import axios from 'axios';
 
@@ -29,7 +28,6 @@ axiosClient.interceptors.response.use(
         const statusCode = data.statusCode;
         const error = data.error;
 
-//when refresh token expires send user to login page
         if(statusCode === 401 && originalRequest.url === 'http://localhost:4001/auth/refresh'){
             removeItem(KEY_ACCESS_TOKEN);
             window.location.replace('/login', '_self');

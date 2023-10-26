@@ -1,4 +1,5 @@
 
+
 import { KEY_ACCESS_TOKEN, getItem,setItem } from './localStorageManager';
 import axios from 'axios';
 
@@ -19,8 +20,9 @@ axiosClient.interceptors.request.use(
 
 axiosClient.interceptors.response.use(
     async(response) => {
+        console.log(response)
         const data = response.data;
-        if(data.status === 'ok'){
+        if(response.status === 200){
             return data;
         }
 
@@ -48,6 +50,7 @@ axiosClient.interceptors.response.use(
     }
 );
 export default axiosClient;
+
 
 
 

@@ -20,6 +20,12 @@ function DropdownMenuDemo() {
     setIsDialogOpen(false); // Close the dialog when needed
   };
 
+  const handleSignOut = () => {
+    localStorage.removeItem('token')
+    navigate('/login')
+}
+
+
   return (
     <div>
       <DropdownMenu.Root>
@@ -40,10 +46,10 @@ function DropdownMenuDemo() {
             sideOffset={5}
           >
             <DropdownMenu.Item
-              onClick={() => handleNavigate('/new-tab')}
+              
               className="text-[13px] leading-none text-violet11 px-2 py-1 cursor-pointer"
             >
-              New Tab
+              <li><button onClick={handleSignOut}>Sign Out</button></li>
             </DropdownMenu.Item>
             <DropdownMenu.Item
               onClick={() => handleNavigate('/new-window')}

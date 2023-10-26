@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateHotelForm />} />
-          <Route path="/update" element={<EditHotelForm />} />
+          <Route path="/update/:id" element={<EditHotelForm />} />
           <Route path="/redirect" element={<Redirect />} />
           <Route path="/admin" element={<AdminPage />} />
 

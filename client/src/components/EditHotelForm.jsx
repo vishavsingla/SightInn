@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosClient from '../utils/axiosClient';
 import Navbar from './Navbar';
+import { useParams } from 'react-router-dom';
 
 function EditHotelForm() {
   const [formData, setFormData] = useState({
@@ -12,15 +13,20 @@ function EditHotelForm() {
     amenities: '',
     images: '',
   });
-
+  const { id } = useParams();
   useEffect(() => {
     // Fetch hotel data for the logged-in user and populate the form fields
     const fetchHotelData = async () => {
       try {
-        const response = await axiosClient.get('/hotel/6538e8541ae323f5c5f73fe7'); // Replace with your API endpoint to fetch hotel data
-
+        
+        console.log('above');
+        console.log(id);
+        const response = await axiosClient.get(`/hotel/${id}`);
+        console.log('below');
+         // Replace with your API endpoint to fetch hotel data
+        
         console.log('API Response:', response); // Debugging: Log the response
-
+        
         if (response.status === 'ok') {
           // If data exists, populate the form fields
           const hotelData = response.statusCode; // Replace with your hotel data structure
@@ -37,7 +43,10 @@ function EditHotelForm() {
           });
         }
       } catch (error) {
+        console.log('above');
+      console.log(useParams() );
         console.error('An error occurred while fetching hotel data:', error);
+        
       }
     };
 
@@ -56,7 +65,7 @@ function EditHotelForm() {
   const handleDelete = async () => {
     // Make an API request to delete the hotel
     try {
-      const response = await axiosClient.delete('/hotel/6538e8541ae323f5c5f73fe7'); // Replace with your API endpoint for deleting hotel
+      const response = await axiosClient.delete(`/hotel/${id}`); // Replace with your API endpoint for deleting hotel
 
       if (response.status === 'ok') {
         console.log('Hotel deleted successfully');
@@ -72,7 +81,7 @@ function EditHotelForm() {
     e.preventDefault();
 
     try {
-      const response = await axiosClient.put('/hotel/6538e8541ae323f5c5f73fe7', formData); // Replace with your API endpoint for updating hotel data
+      const response = await axiosClient.put(`/hotel/${id}`, formData); // Replace with your API endpoint for updating hotel data
 
       if (response.status === 'ok') {
         console.log('Hotel updated successfully');

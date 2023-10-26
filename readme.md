@@ -7,3 +7,7 @@ location
 wishlist
 
 filters
+
+Chat
+
+payment page

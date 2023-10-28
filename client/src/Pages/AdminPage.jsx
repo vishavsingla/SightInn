@@ -10,7 +10,6 @@ function AdminPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const navigateToUpdate = (id) => {
-    // Use the useNavigate hook to navigate to the update page with the id as a URL parameter
     navigate(`/update/${id}`);
   };
 
@@ -44,6 +43,7 @@ function AdminPage() {
     <div className="pl-6">
       <Navbar />
       <div className="px-4 sm:px-20 py-7 max-w-8xl mx-auto flex flex-wrap gap-7">
+      <button className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => navigate('/create')}>List new hotel</button>
         {hotelsData.map((hotel, index) => (
           <div key={index} className="px-2 font-sans">
             <ImageSlider className="flex" slides={SliderData} />

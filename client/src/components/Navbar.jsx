@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { AvatarIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import logo from '../assets/logo.png';
 import LoginSignupDialog from './LoginSignupDialog';
-import DropdownMenuDemo from './DropdownMenuDemo';
+import DropdownMenuDemo from '../dumped codes/DropdownMenuDemo';
 import NavigationMenuDemo from './NavigationMenuDemo';
-
+import { useNavigate } from 'react-router-dom';
 function SearchBar({ placeholder, onSearch }) {
   return (
     <div className="flex items-center rounded-full bg-white-400 px-3 shadow-md border border-gray-100">
@@ -36,7 +36,7 @@ function AvatarDropdown() {
 
 function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
@@ -46,7 +46,7 @@ function Navbar() {
       <div className="px-4 sm:px-20 shadow-sm">
         <div className="flex items-center justify-between max-w-8xl mx-auto p-5 relative">
           <div className='h-35 w-35'>
-            <img src={logo} alt="Logo" className="h-15 w-20" />
+            <img onClick={()=>navigate('/')} src={logo} alt="Logo" className="h-15 w-20 cursor-pointer" />
           </div>
 
           <SearchBar placeholder="Search..." onSearch={(query) => console.log(query)} />

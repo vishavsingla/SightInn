@@ -6,7 +6,6 @@ import CreateHotelForm from './components/CreateHotelForm';
 import EditHotelForm from './components/EditHotelForm';
 import Redirect from './Pages/Redirect';
 import AdminPage from './Pages/adminPage';
-import Booking from './Pages/Booking';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
           <Route path="/update/:id" element={<EditHotelForm />} />
           <Route path="/redirect" element={<Redirect />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/booking/:hotelId" element={<Booking />} />
 
           {/* <Route path="/login" element={<Signin />} />
           <Route path="/signup" element={<Signup />} /> */}

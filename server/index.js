@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const authRouter = require('./routers/authRouter');
 const hotelRouter = require('./routers/hotelRouter');
 const adminRouter = require('./routers/adminRouter');
+const bookingRouter = require('./controllers/booking');
 const app = express();
 dotenv.config();
 
@@ -22,9 +23,11 @@ app.use(cookieParser());
 app.use('/auth', authRouter);
 app.use('/hotel', hotelRouter);
 app.use('/admin', adminRouter);
+app.use('/book', bookingRouter);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
 
 
 db();

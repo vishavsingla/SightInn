@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosClient from '../utils/axiosClient';
-import HotelCard from '../components/HotelCard';
+// import HotelCard from '../components/HotelCard';
 
 export default function Redirect() {
   const [hotels, setHotels] = useState([]);

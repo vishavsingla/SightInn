@@ -24,6 +24,8 @@ const bookingSchema = new Schema({
     type: Number,
     required: true,
   },
+  specialRequests: String,
+  numberOfGuests: Number,
   // You can add more fields as needed, e.g., special requests, number of guests, etc.
 });
 

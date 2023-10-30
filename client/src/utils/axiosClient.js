@@ -17,7 +17,7 @@ axiosClient.interceptors.request.use((request) => {
 axiosClient.interceptors.response.use(async (response) => {
   console.log(response);
   const data = response.data;
-  if (response.status === 200) {
+  if (response.status === 201) {
     return data;
   }
 

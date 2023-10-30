@@ -7,6 +7,7 @@ import EditHotelForm from "./components/EditHotelForm";
 import Redirect from "./Pages/Redirect";
 import AdminPage from "./Pages/adminPage";
 import Booking from "./Pages/Booking";
+import BookingForm from "./components/BookingForm";
 
 function App() {
   return (

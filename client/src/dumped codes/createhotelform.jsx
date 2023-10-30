@@ -20,28 +20,6 @@ function CreateHotelForm() {
     });
   };
 
-  // const handleImageChange = async (e) => {
-  //   const images = Array.from(e.target.files);
-
-  //   // Create an array to store base64-encoded image strings
-  //   const imageStrings = [];
-
-  //   for (const image of images) {
-  //     const reader = new FileReader();
-
-  //     reader.onload = (e) => {
-  //       // Push the base64-encoded image to the array
-  //       imageStrings.push(e.target.result);
-  //     };
-
-  //     reader.readAsDataURL(image);
-  //   }
-
-  //   setFormData({
-  //     ...formData,
-  //     images: imageStrings,
-  //   });
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

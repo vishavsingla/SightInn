@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axiosClient from '../utils/axiosClient'; // Import your Axios client
+import React, { useState } from "react";
+import axiosClient from "../utils/axiosClient"; // Import your Axios client
 
 function CreateHotelForm() {
   const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    description: '',
+    title: "",
+    location: "",
+    description: "",
     pricePerNight: 0,
     capacity: 0,
-    amenities: '',
+    amenities: "",
     images: [],
   });
 
@@ -22,21 +22,21 @@ function CreateHotelForm() {
 
   // const handleImageChange = async (e) => {
   //   const images = Array.from(e.target.files);
-  
+
   //   // Create an array to store base64-encoded image strings
   //   const imageStrings = [];
-  
+
   //   for (const image of images) {
   //     const reader = new FileReader();
-  
+
   //     reader.onload = (e) => {
   //       // Push the base64-encoded image to the array
   //       imageStrings.push(e.target.result);
   //     };
-  
+
   //     reader.readAsDataURL(image);
   //   }
-  
+
   //   setFormData({
   //     ...formData,
   //     images: imageStrings,
@@ -47,7 +47,7 @@ function CreateHotelForm() {
     e.preventDefault();
 
     try {
-      const response = await axiosClient.post('/hotel', formData);
+      const response = await axiosClient.post("/hotel", formData);
 
       if (response.status === 201) {
         // Hotel created successfully
@@ -67,7 +67,10 @@ function CreateHotelForm() {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="title"
+          >
             Title:
           </label>
           <input
@@ -81,7 +84,10 @@ function CreateHotelForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="location"
+          >
             Location:
           </label>
           <input
@@ -95,7 +101,10 @@ function CreateHotelForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="description"
+          >
             Description:
           </label>
           <textarea
@@ -108,7 +117,10 @@ function CreateHotelForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="pricePerNight">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="pricePerNight"
+          >
             Price Per Night:
           </label>
           <input
@@ -122,7 +134,10 @@ function CreateHotelForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="capacity">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="capacity"
+          >
             Capacity:
           </label>
           <input
@@ -136,7 +151,10 @@ function CreateHotelForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amenities">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="amenities"
+          >
             Amenities:
           </label>
           <input

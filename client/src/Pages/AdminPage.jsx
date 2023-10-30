@@ -43,9 +43,14 @@ function AdminPage() {
     <div className="pl-6">
       <Navbar />
       <div className="px-4 sm:px-20 py-7 max-w-8xl mx-auto flex flex-wrap gap-7">
-      <button className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => navigate('/create')}>List new hotel</button>
+        <button
+          className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 justify-center px-4 rounded focus:outline-none focus:shadow-outline"
+          onClick={() => navigate("/create")}
+        >
+          List new hotel
+        </button>
         {hotelsData.map((hotel, index) => (
-          <div key={index} className="px-2 font-sans">
+          <div key={index} className="px-2 font-sans ">
             <ImageSlider className="flex" slides={SliderData} />
             <div className="pt-2 px-1">
               <div className="font-bold">{hotel.location}</div>
@@ -56,14 +61,25 @@ function AdminPage() {
                 <span className="text-gray-500"> per night</span>
               </div>
               <div className="flex space-x-3">
-              <button className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={()=>{
-                axiosClient.delete(`http://localhost:4001/hotel/${hotel._id}`, hotel)
-                
-              }}>Delete</button>
-              
-              <button className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => navigateToUpdate(hotel._id)}>Update</button>
+                <button
+                  className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => {
+                    axiosClient.delete(
+                      `http://localhost:4001/hotel/${hotel._id}`,
+                      hotel,
+                    );
+                  }}
+                >
+                  Delete
+                </button>
+
+                <button
+                  className="bg-red-500 hover-bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => navigateToUpdate(hotel._id)}
+                >
+                  Update
+                </button>
               </div>
-              
             </div>
           </div>
         ))}

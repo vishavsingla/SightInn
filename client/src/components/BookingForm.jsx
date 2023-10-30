@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import axiosClient from '../utils/axiosClient'; 
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import axiosClient from "../utils/axiosClient";
 
-import { KEY_ACCESS_TOKEN, getItem,setItem } from '../utils/localStorageManager';
-import { isLogin } from '../utils/auth';
+import {
+  KEY_ACCESS_TOKEN,
+  getItem,
+  setItem,
+} from "../utils/localStorageManager";
+import { isLogin } from "../utils/auth";
 
-function BookingForm({hotelId}) {
+function BookingForm({ hotelId }) {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
-  
+
   const [user, setUser] = useState({ name: "", email: "" });
 
   useEffect(() => {
@@ -18,21 +22,21 @@ function BookingForm({hotelId}) {
       console.log(loggedIn);
       if (loggedIn.auth) {
         setUser(loggedIn.data);
-    } 
+      }
     };
     authenticate();
   }, []);
 
-
+  console.log("up");
   const handleBookHotel = () => {
     const hotelId = hotelId;
-    
+
     const bookingData = {
       user: userId,
       hotel: hotelId,
       checkInDate,
       checkOutDate,
-      specialRequests: 'Any special requests',
+      specialRequests: "Any special requests",
       numberOfGuests: 2,
     };
 
@@ -40,13 +44,13 @@ function BookingForm({hotelId}) {
       .post(`/book/${hotelId}`, bookingData)
       .then((response) => {
         if (response.status === 200) {
-          console.log('Booking successful');
+          console.log("Booking successful");
         } else {
-          console.error('Booking failed');
+          console.error("Booking failed");
         }
       })
       .catch((error) => {
-        console.error('Error sending booking request:', error);
+        console.error("Error sending booking request:", error);
       });
   };
 
@@ -54,12 +58,17 @@ function BookingForm({hotelId}) {
     <div>
       <div>
         <label>Check-In Date:</label>
-        <DatePicker selected={checkInDate} onChange={(date) => setCheckInDate(date)} />
+        <DatePicker
+          selected={checkInDate}
+          onChange={(date) => setCheckInDate(date)}
+        />
       </div>
       <div>
-        
         <label>Check-Out Date:</label>
-        <DatePicker selected={checkOutDate} onChange={(date) => setCheckOutDate(date)} />
+        <DatePicker
+          selected={checkOutDate}
+          onChange={(date) => setCheckOutDate(date)}
+        />
       </div>
       <button onClick={handleBookHotel}>Book Hotel</button>
     </div>

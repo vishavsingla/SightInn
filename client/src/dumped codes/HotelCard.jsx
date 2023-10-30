@@ -1,11 +1,11 @@
-import React from 'react';
-import ImageSlider from '../components/ImageSlider';
-import { SliderData } from '../components/SliderData';
+import React from "react";
+import ImageSlider from "../components/ImageSlider";
+import { SliderData } from "../components/SliderData";
 
 function HotelCard({ title, location, distance, date, price }) {
   return (
-    <div className='px-2 font-sans'>
-      <ImageSlider className='flex' slides={SliderData} /> 
+    <div className="px-2 font-sans">
+      <ImageSlider className="flex" slides={SliderData} />
       <div className="pt-2 px-1">
         <div className="font-bold">{location}</div>
         <div className="text-gray-500 ">{distance}</div>
@@ -20,4 +20,3 @@ function HotelCard({ title, location, distance, date, price }) {
 }
 
 export default HotelCard;
-

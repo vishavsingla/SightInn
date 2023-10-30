@@ -47,5 +47,29 @@ function calculateTotalPrice(checkInDate, checkOutDate, pricePerNight) {
     const totalPrice = numberOfNights * pricePerNight;
     return totalPrice;
   }
+
+
+  router.delete('/:bookingId', requireUser, async (req, res) => {
+    try {
+      const { bookingId } = req.params;
+
+      const booking = await Booking.findById(bookingId);
+  
+      if (!booking) {
+        return res.status(404).json(error('Booking not found'));
+      }
+      if (booking.user.toString() !== req._id) {
+        return res.status(403).json(error('You are not authorized to delete this booking'));
+      }
+  
+      await Booking.findByIdAndDelete(bookingId);
+  
+      res.status(200).json(success('Booking deleted successfully'));
+    } catch (err) {
+      res.status(500).json(error('Failed to delete the booking', err));
+    }
+  });
+  
+  
   
 module.exports = router;

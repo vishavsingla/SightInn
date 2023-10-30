@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axiosClient from '../utils/axiosClient';
-import Navbar from './Navbar';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axiosClient from "../utils/axiosClient";
+import Navbar from "./Navbar";
+import { useParams } from "react-router-dom";
 
 function EditHotelForm() {
   const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    description: '',
+    title: "",
+    location: "",
+    description: "",
     pricePerNight: 0,
     capacity: 0,
-    amenities: '',
-    images: '',
+    amenities: "",
+    images: "",
   });
   const { id } = useParams();
   useEffect(() => {
     // Fetch hotel data for the logged-in user and populate the form fields
     const fetchHotelData = async () => {
       try {
-        
-        console.log('above');
+        console.log("above");
         console.log(id);
         const response = await axiosClient.get(`/hotel/${id}`);
-        console.log('below');
-         // Replace with your API endpoint to fetch hotel data
-        
-        console.log('API Response:', response); // Debugging: Log the response
-        
-        if (response.status === 'ok') {
+        console.log("below");
+        // Replace with your API endpoint to fetch hotel data
+
+        console.log("API Response:", response); // Debugging: Log the response
+
+        if (response.status === "ok") {
           // If data exists, populate the form fields
           const hotelData = response.statusCode; // Replace with your hotel data structure
-          console.log('Hotel Data:', hotelData); // Debugging: Log the hotel data
+          console.log("Hotel Data:", hotelData); // Debugging: Log the hotel data
 
           setFormData({
             title: hotelData.title,
@@ -43,16 +42,14 @@ function EditHotelForm() {
           });
         }
       } catch (error) {
-        console.log('above');
-      console.log(useParams() );
-        console.error('An error occurred while fetching hotel data:', error);
-        
+        console.log("above");
+        console.log(useParams());
+        console.error("An error occurred while fetching hotel data:", error);
       }
     };
 
     fetchHotelData();
   }, []);
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,15 +64,14 @@ function EditHotelForm() {
     try {
       const response = await axiosClient.delete(`/hotel/${id}`); // Replace with your API endpoint for deleting hotel
 
-      if (response.status === 'ok') {
-        console.log('Hotel deleted successfully');
+      if (response.status === "ok") {
+        console.log("Hotel deleted successfully");
         // Optionally, you can redirect the user to a different page after deletion
       }
     } catch (error) {
-      console.error('An error occurred while deleting the hotel:', error);
+      console.error("An error occurred while deleting the hotel:", error);
     }
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,16 +79,16 @@ function EditHotelForm() {
     try {
       const response = await axiosClient.put(`/hotel/${id}`, formData); // Replace with your API endpoint for updating hotel data
 
-      if (response.status === 'ok') {
-        console.log('Hotel updated successfully');
+      if (response.status === "ok") {
+        console.log("Hotel updated successfully");
       }
     } catch (error) {
-      console.error('An error occurred while updating the hotel:', error);
+      console.error("An error occurred while updating the hotel:", error);
     }
   };
 
   return (
-    <div className=''>
+    <div className="">
       <Navbar />
       <div className="pt-3 w-full max-w-md mx-auto">
         <form
@@ -100,7 +96,10 @@ function EditHotelForm() {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-gray-200"
         >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="title"
+            >
               Title:
             </label>
             <input
@@ -114,7 +113,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="location"
+            >
               Location:
             </label>
             <input
@@ -128,7 +130,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="description"
+            >
               Description:
             </label>
             <textarea
@@ -141,7 +146,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="pricePerNight">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="pricePerNight"
+            >
               Price Per Night:
             </label>
             <input
@@ -155,7 +163,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="capacity">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="capacity"
+            >
               Capacity:
             </label>
             <input
@@ -169,7 +180,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amenities">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="amenities"
+            >
               Amenities:
             </label>
             <input
@@ -183,7 +197,10 @@ function EditHotelForm() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="images">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="images"
+            >
               Images (URLs):
             </label>
             <input

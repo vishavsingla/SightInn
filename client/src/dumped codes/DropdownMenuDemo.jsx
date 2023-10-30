@@ -1,9 +1,13 @@
-import React from 'react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { AvatarIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import { useNavigate } from 'react-router-dom';
-import LoginSignupDialog from '../components/LoginSignupDialog';
-
+import React from "react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import {
+  AvatarIcon,
+  DotFilledIcon,
+  CheckIcon,
+  ChevronRightIcon,
+} from "@radix-ui/react-icons";
+import { useNavigate } from "react-router-dom";
+import LoginSignupDialog from "../components/LoginSignupDialog";
 
 function DropdownMenuDemo() {
   const navigate = useNavigate();
@@ -29,23 +33,20 @@ function DropdownMenuDemo() {
           sideOffset={5}
         >
           <DropdownMenu.Item
-            onClick={() => {
-              
-
-            }}
+            onClick={() => {}}
             className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none"
           >
-            <button><LoginSignupDialog /></button>
-                
-            <div className="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
-            
-            </div>
+            <button>
+              <LoginSignupDialog />
+            </button>
+
+            <div className="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8"></div>
           </DropdownMenu.Item>
           <DropdownMenu.Item
-            onClick={() => handleNavigate('/new-window')}
+            onClick={() => handleNavigate("/new-window")}
             className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none"
           >
-            New Window{' '}
+            New Window{" "}
             <div className="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
               ⌘+N
             </div>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axiosClient from '../utils/axiosClient';
+import React, { useState, useEffect } from "react";
+import axiosClient from "../utils/axiosClient";
 // import HotelCard from '../components/HotelCard';
 
 export default function Redirect() {
@@ -9,12 +9,12 @@ export default function Redirect() {
     // Fetch all hotels
     const fetchHotels = async () => {
       try {
-        const response = await axiosClient.get('/hotels');
+        const response = await axiosClient.get("/hotels");
         if (response.status === 200) {
           setHotels(response.data);
         }
       } catch (error) {
-        console.error('Error fetching hotels:', error);
+        console.error("Error fetching hotels:", error);
       }
     };
 

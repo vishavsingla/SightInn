@@ -1,4 +1,4 @@
-<H2>**SightInn**</H2>
+<H2>SightInn</H2>
 <H3>Hotel management and booking website</H3>
 
 
